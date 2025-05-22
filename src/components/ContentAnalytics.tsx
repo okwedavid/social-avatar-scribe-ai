@@ -226,7 +226,12 @@ const ContentAnalytics = () => {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="value" fill={(entry) => entry.color} />
+                    {/* Fix: change the function to use fill prop directly with a string value */}
+                    <Bar dataKey="value" fill="#8884d8">
+                      {sentimentData.map((entry, index) => (
+                        <rect key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>

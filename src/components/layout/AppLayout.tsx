@@ -6,7 +6,7 @@ import AppHeader from './AppHeader';
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SidebarProvider collapsedWidth={64}>
+    <SidebarProvider>
       <div className="flex h-screen w-full">
         <AppSidebar />
         <div className="flex flex-1 flex-col overflow-hidden">

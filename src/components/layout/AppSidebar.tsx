@@ -44,7 +44,8 @@ const menuItems = [
 ];
 
 const AppSidebar = () => {
-  const { collapsed } = useSidebar();
+  const { state } = useSidebar();
+  const collapsed = state === "collapsed";
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -80,7 +81,6 @@ const AppSidebar = () => {
   return (
     <Sidebar
       className={`transition-all duration-200 ${collapsed ? "w-16" : "w-64"}`}
-      collapsible
     >
       <div className="flex items-center justify-between p-4">
         {!collapsed && (
@@ -99,8 +99,8 @@ const AppSidebar = () => {
         {menuItems.map((group) => (
           <SidebarGroup
             key={group.id}
-            open={expandedGroups.includes(group.id)}
-            onOpenChange={() => toggleGroup(group.id)}
+            data-open={expandedGroups.includes(group.id)}
+            onClick={() => toggleGroup(group.id)}
           >
             <SidebarGroupLabel className="px-4 py-2">
               {!collapsed && group.label}
