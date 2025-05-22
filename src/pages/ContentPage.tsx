@@ -1,10 +1,10 @@
 
 import React from 'react';
 import AppLayout from '@/components/layout/AppLayout';
-import CharacterCreator from '@/components/CharacterCreator';
+import ContentGenerator from '@/components/ContentGenerator';
 import { motion } from 'framer-motion';
 
-const Index = () => {
+const ContentPage = () => {
   return (
     <AppLayout>
       <div className="mx-auto max-w-7xl">
@@ -13,16 +13,16 @@ const Index = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-3xl font-bold gradient-text">Character Creator</h1>
+          <h1 className="text-3xl font-bold gradient-text">Content Generator</h1>
           <p className="text-muted-foreground">
-            Design your own 3D character for social media content
+            Create AI-powered content for your social media
           </p>
         </motion.div>
         
-        <CharacterCreator />
+        <ContentGenerator />
       </div>
     </AppLayout>
   );
 };
 
-export default Index;
+export default ContentPage;
